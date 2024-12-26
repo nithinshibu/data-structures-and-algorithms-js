@@ -1,0 +1,22 @@
+Thanks to HuXn WebDev : https://youtu.be/wBtPGnVnA9g?si=asbm46iMit3dF3qO
+
+What is a Data Structure / Algorithm ?
+
+- A datastructure is a specific way of organizing , storing , and accessing data.
+- A set of instructions that tells a computer how to do something , or we can also say step-by-step solution of the problem is called algorithm.
+
+#BIG O Notation
+
+Big O Notation helps us understand how long an algorithm will take to run (time complexity)
+or
+how much memory it will need as the amount of data it handles grows (space complexity).
+
+
+O(n)
+
+- Signifies that the execution time of the algorithm grows linearly in proportion to the size of the input data (n).
+
+
+
+
+
