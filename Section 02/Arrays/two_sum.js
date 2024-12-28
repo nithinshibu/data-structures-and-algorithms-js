@@ -11,3 +11,6 @@ const twoSum = (nums, target) => {
   }
   return [];
 };
+
+const res = twoSum([2, 7, 1, , 5, 3], 9);
+console.log(res);
