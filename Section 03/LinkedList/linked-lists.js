@@ -65,6 +65,24 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  shift() {
+    if (!this.head) {
+      return undefined; // Return undefined if the list is empty
+    }
+
+    let currentHead = this.head;
+    this.head = this.head.next; // Move the head to the next node
+    currentHead.next = null; //removing the first node
+    this.length--;
+
+    if (this.length === 0) {
+      // If the list is now empty, reset the tail
+      this.tail = null;
+    }
+
+    return currentHead; // Return the removed node
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -74,5 +92,7 @@ myLinkedList.push(12);
 
 //myLinkedList.pop();
 myLinkedList.unshift(7);
+
+//myLinkedList.shift();
 
 console.log(myLinkedList);
