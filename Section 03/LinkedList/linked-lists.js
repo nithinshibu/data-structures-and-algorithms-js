@@ -1,6 +1,6 @@
 class Node {
   constructor(value) {
-    this.value = value; // Corrected from `head` to `value` to store the node's data
+    this.value = value;
     this.next = null;
   }
 }
@@ -27,5 +27,6 @@ class LinkedList {
 }
 
 const myLinkedList = new LinkedList(1);
+console.log(myLinkedList);
 myLinkedList.push(10);
 console.log(myLinkedList);
