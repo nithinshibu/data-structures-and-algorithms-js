@@ -24,9 +24,40 @@ class LinkedList {
     }
     this.length++; // Increment the length of the linked list
   }
+
+  pop() {
+    //if the linked list is empty
+    if (!this.head) {
+      return undefined;
+    }
+
+    let temp = this.head;
+    let prev = this.head;
+
+    //will be looped until the temp.next !== null
+    while (temp.next) {
+      prev = temp;
+      temp = prev.next;
+    }
+
+    this.tail = prev;
+    this.tail.next = null; //this will remove the last element from the linked list
+    this.length--;
+
+    //if the linkedlist contains only one element
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
-console.log(myLinkedList);
 myLinkedList.push(10);
+myLinkedList.push(11);
+myLinkedList.push(12);
+
+myLinkedList.pop();
+
 console.log(myLinkedList);
