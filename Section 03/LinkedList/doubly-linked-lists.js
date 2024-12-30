@@ -112,3 +112,31 @@ myDoublyLinkedList.print();
 myDoublyLinkedList.shift();
 myDoublyLinkedList.print();
 //console.log(myDoublyLinkedList);
+
+/* 
+
+REVERSE A DOUBLY LINKED LIST
+
+reverse() {
+  let temp = null;
+  let curr = this.head;
+
+  /// Swap next and prev pointers for all nodes
+  while (curr !== null) {
+    temp = curr.prev;     // Save the current prev
+    curr.prev = curr.next; // Reverse the prev pointer
+    curr.next = temp;     // Reverse the next pointer
+    curr = curr.prev;     // Move to the next node (which is now in curr.prev)
+  }
+
+  /// Swap the head and tail
+  if (temp !== null) {
+    this.tail = this.head;
+    this.head = temp.prev; // Adjust head to the new first node
+  }
+
+  return this;
+}
+
+
+*/
