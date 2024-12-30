@@ -83,6 +83,36 @@ class LinkedList {
 
     return currentHead; // Return the removed node
   }
+
+  print() {
+    let current = this.head;
+    const values = [];
+
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+
+    console.log(values.join(" -> "));
+  }
+
+  //get the first element
+  getFirst() {
+    console.log(this.head);
+  }
+
+  getLast() {
+    if (!this.head) {
+      return null;
+    }
+    let temp = this.head;
+    while (temp) {
+      if (!temp.next) {
+        return temp;
+      }
+      temp = temp.next;
+    }
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -91,8 +121,12 @@ myLinkedList.push(11);
 myLinkedList.push(12);
 
 //myLinkedList.pop();
-myLinkedList.unshift(7);
+//myLinkedList.unshift(7);
 
 //myLinkedList.shift();
 
-console.log(myLinkedList);
+myLinkedList.print();
+//myLinkedList.getFirst();
+console.log(myLinkedList.getLast());
+
+//console.log(myLinkedList);
