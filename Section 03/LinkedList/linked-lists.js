@@ -161,6 +161,23 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  size() {
+    let counter = 0;
+    let temp = this.head;
+    while (temp) {
+      counter++;
+      temp = temp.next;
+    }
+    return counter;
+  }
+
+  //JavaScript's garbage collector will automatically reclaim the memory for the disconnected nodes.
+  clear() {
+    this.head = null; //Time complexity is O(1) because you only perform a single operation, this.head = null.
+    this.tail = null;
+    this.length = 0;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -175,6 +192,7 @@ myLinkedList.push(12);
 myLinkedList.print();
 myLinkedList.insert(2, 27);
 myLinkedList.print();
+console.log(myLinkedList.size());
 //console.log(myLinkedList.get(1));
 //myLinkedList.getFirst();
 //console.log(myLinkedList.getLast());
