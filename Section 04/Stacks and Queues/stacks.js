@@ -28,6 +28,18 @@ class Stack {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (this.length === 0) {
+      return undefined;
+    }
+    let temp = this.first;
+    this.first = this.first.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+
   print() {
     let curr = this.first;
     let values = [];
@@ -41,5 +53,9 @@ class Stack {
 
 let stack = new Stack(0);
 stack.push(1);
-console.log(stack);
+stack.push(2);
+stack.push(3);
+stack.print();
+stack.pop();
+//console.log(stack);
 stack.print();
