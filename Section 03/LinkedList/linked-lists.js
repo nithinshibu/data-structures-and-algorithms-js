@@ -113,6 +113,34 @@ class LinkedList {
       temp = temp.next;
     }
   }
+
+  getElementbyIndex(index) {
+    if (index < 0 || index >= this.length) {
+      return null; // Return null for invalid indices
+    }
+    if (!this.head) {
+      return null;
+    }
+    let temp = this.head;
+    let i = 0;
+    while (temp) {
+      if (i === index) {
+        return temp;
+      }
+      temp = temp.next;
+      i++;
+    }
+  }
+
+  //Set method -> finds a node and updates its value
+  set(index, value) {
+    let temp = this.getElementbyIndex(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -124,9 +152,11 @@ myLinkedList.push(12);
 //myLinkedList.unshift(7);
 
 //myLinkedList.shift();
-
 myLinkedList.print();
+myLinkedList.set(2, 27);
+myLinkedList.print();
+//console.log(myLinkedList.getElementbyIndex(1));
 //myLinkedList.getFirst();
-console.log(myLinkedList.getLast());
+//console.log(myLinkedList.getLast());
 
 //console.log(myLinkedList);
