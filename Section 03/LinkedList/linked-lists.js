@@ -114,7 +114,7 @@ class LinkedList {
     }
   }
 
-  getElementbyIndex(index) {
+  get(index) {
     if (index < 0 || index >= this.length) {
       return null; // Return null for invalid indices
     }
@@ -134,12 +134,32 @@ class LinkedList {
 
   //Set method -> finds a node and updates its value
   set(index, value) {
-    let temp = this.getElementbyIndex(index);
+    let temp = this.get(index);
     if (temp) {
       temp.value = value;
       return true;
     }
     return false;
+  }
+
+  //Add a new element in any position
+  insert(index, value) {
+    if (index === 0) {
+      return this.unshift(value);
+    }
+    if (index === this.length) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+
+    //Uses the get method to find the node right before the desired position (index-1)
+    const temp = this.get(index - 1);
+
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
   }
 }
 
@@ -153,9 +173,9 @@ myLinkedList.push(12);
 
 //myLinkedList.shift();
 myLinkedList.print();
-myLinkedList.set(2, 27);
+myLinkedList.insert(2, 27);
 myLinkedList.print();
-//console.log(myLinkedList.getElementbyIndex(1));
+//console.log(myLinkedList.get(1));
 //myLinkedList.getFirst();
 //console.log(myLinkedList.getLast());
 
