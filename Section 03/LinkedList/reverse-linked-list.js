@@ -47,6 +47,7 @@ class LinkedList {
       let next = curr.next;
       //reverse the link
       curr.next = prev;
+      //moving the pointers
       prev = curr;
       curr = next;
     }
@@ -69,7 +70,7 @@ myLinkedList.print();
 
 /* 
 
-Leet code JS solution
+---Leet code JS solution--
 
 class Solution {
     reverseList(head) {
