@@ -1,0 +1,95 @@
+/*
+
+In JavaScript, a hash table (also called a hash map) is typically implemented using the Object or Map data structure. These structures allow you to store key-value pairs, where each key is unique, and each key maps to a value.
+
+/// Creating a hash table using an object
+const hashTable = {};
+
+/// Adding key-value pairs
+hashTable["name"] = "Alice";
+hashTable["age"] = 25;
+hashTable["job"] = "Engineer";
+
+/// Accessing values by key
+console.log(hashTable["name"]);  // Output: Alice
+console.log(hashTable["age"]);   // Output: 25
+
+/// Checking if a key exists
+console.log("job" in hashTable);  // Output: true
+
+/// Deleting a key-value pair
+delete hashTable["age"];
+console.log(hashTable["age"]);  // Output: undefined
+
+*/
+
+/*
+
+Using Map as hash table
+
+/// Creating a hash table using Map
+const map = new Map();
+
+/// Adding key-value pairs
+map.set("name", "Bob");
+map.set("age", 30);
+map.set("job", "Developer");
+
+/// Accessing values by key
+console.log(map.get("name"));  // Output: Bob
+console.log(map.get("age"));   // Output: 30
+
+/// Checking if a key exists
+console.log(map.has("job"));  // Output: true
+
+/// Deleting a key-value pair
+map.delete("age");
+console.log(map.get("age"));  // Output: undefined
+
+/// Iterating over Map
+map.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+
+
+// Example map
+const myMap = new Map([
+  [1, "apple"],
+  [2, "banana"],
+  [3, "cherry"]
+]);
+
+/// Value to search for
+const valueToFind = "banana";
+
+/// Check if value exists
+const valueExists = Array.from(myMap.values()).includes(valueToFind);
+
+if (valueExists) {
+  console.log(`Value "${valueToFind}" exists in the map.`);
+} else {
+  console.log(`Value "${valueToFind}" does not exist in the map.`);
+}
+
+
+*/
+
+/*
+
+Key Differences Between Object and Map
+Key Types:
+
+In Object, keys are always strings (or symbols). Even if you use a non-string as a key, it is automatically converted to a string.
+In Map, keys can be any data type (objects, functions, primitive values, etc.).
+Order:
+
+Map maintains the order of key-value pairs as they are inserted.
+Object may not guarantee the order, especially for numerical keys.
+Performance:
+
+Map is generally more efficient for frequent additions and removals of key-value pairs, especially when the keys are not strings.
+Conclusion
+Use an Object if you need a simple key-value store with string keys.
+Use a Map if you need to store complex keys or require better performance and order guarantees.
+
+*/
