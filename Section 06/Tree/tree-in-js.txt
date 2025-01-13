@@ -1,0 +1,188 @@
+Tree Data Structure in JavaScript
+
+Key Concepts
+
+1. What is a Tree?
+
+A tree is a hierarchical data structure consisting of nodes.
+
+The top node is called the root.
+
+Each node can have child nodes, and nodes with no children are called leaves.
+
+2. Terminology
+
+Root: The topmost node in the tree.
+
+Parent: A node that has child nodes.
+
+Child: A node that descends from another node.
+
+Leaf: A node with no children.
+
+Edge: The connection between two nodes.
+
+Depth: The distance from the root to a specific node.
+
+Height: The distance from a node to the farthest leaf.
+
+Subtree: A tree consisting of a node and its descendants.
+
+Types of Trees
+
+1. Binary Tree
+
+Each node has at most two children (left and right).
+
+2. Binary Search Tree (BST)
+
+A binary tree with the property:
+
+Left child contains values less than the parent node.
+
+Right child contains values greater than the parent node.
+
+3. Balanced Tree
+
+A tree where the height difference between left and right subtrees is minimal (e.g., AVL trees).
+
+4. N-ary Tree
+
+A tree where each node can have at most N children.
+
+5. Trie (Prefix Tree)
+
+Used for efficient searching and storing strings.
+
+Basic Operations
+
+1. Traversal
+
+Depth-First Search (DFS):
+
+Preorder: Visit root -> Left -> Right.
+
+Inorder: Left -> Root -> Right.
+
+Postorder: Left -> Right -> Root.
+
+Breadth-First Search (BFS):
+
+Traverse level by level.
+
+2. Insertion
+
+Add a new node to the tree while maintaining its properties.
+
+3. Deletion
+
+Remove a node and restructure the tree accordingly.
+
+4. Searching
+
+Find a node based on a value.
+
+JavaScript Implementation
+
+1. Node Class
+
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+2. Binary Tree Class
+
+class BinaryTree {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    const newNode = new TreeNode(value);
+    if (!this.root) {
+      this.root = newNode;
+      return;
+    }
+
+    const queue = [this.root];
+    while (queue.length) {
+      const current = queue.shift();
+
+      if (!current.left) {
+        current.left = newNode;
+        break;
+      } else if (!current.right) {
+        current.right = newNode;
+        break;
+      } else {
+        queue.push(current.left);
+        queue.push(current.right);
+      }
+    }
+  }
+
+  bfs() {
+    if (!this.root) return [];
+
+    const result = [];
+    const queue = [this.root];
+
+    while (queue.length) {
+      const current = queue.shift();
+      result.push(current.value);
+
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+
+    return result;
+  }
+
+  dfsPreOrder(node = this.root, result = []) {
+    if (!node) return result;
+    result.push(node.value);
+    this.dfsPreOrder(node.left, result);
+    this.dfsPreOrder(node.right, result);
+    return result;
+  }
+
+  dfsInOrder(node = this.root, result = []) {
+    if (!node) return result;
+    this.dfsInOrder(node.left, result);
+    result.push(node.value);
+    this.dfsInOrder(node.right, result);
+    return result;
+  }
+
+  dfsPostOrder(node = this.root, result = []) {
+    if (!node) return result;
+    this.dfsPostOrder(node.left, result);
+    this.dfsPostOrder(node.right, result);
+    result.push(node.value);
+    return result;
+  }
+}
+
+Tips for Working with Trees
+
+Use recursion for traversal operations.
+
+Understand the difference between DFS and BFS.
+
+Visualize the tree structure to debug effectively.
+
+Be mindful of edge cases, such as empty trees or single-node trees.
+
+Common Use Cases
+
+Hierarchy Representation: File systems, organizational charts.
+
+Searching and Sorting: Binary Search Trees.
+
+Autocomplete and Prefix Matching: Tries.
+
+Routing Algorithms: Network trees and graphs.
